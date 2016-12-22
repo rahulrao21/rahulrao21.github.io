@@ -311,8 +311,7 @@
     }
 //===================================================================================================
 
-        if (typeof(_pe_optin_settings.desktop.http) == "object")
-            _pe_optin_settings.desktop = _pe_optin_settings.desktop.http;
+     
 
         var _pe = {
             openDialogBox: function(segment) {
