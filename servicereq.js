@@ -1,1 +1,1 @@
-_pe.iframe_subscribe();
+_pe.subscribe();
