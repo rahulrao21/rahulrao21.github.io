@@ -310,7 +310,7 @@
         return "";
     }
 //===================================================================================================
-    if (location.protocol === "https:") {
+
         if (typeof(_pe_optin_settings.desktop.http) == "object")
             _pe_optin_settings.desktop = _pe_optin_settings.desktop.http;
 
@@ -551,8 +551,6 @@
                 } //closing subscriber function
         };
 
-
-    }
     //======================================================================================
     
 
