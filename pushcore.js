@@ -366,6 +366,7 @@
 //===================================================================================================
     if (location.protocol === "https:") 
     {
+        console.log("Here");
         if (typeof(_pe_optin_settings.desktop.http) == "object")
             _pe_optin_settings.desktop = _pe_optin_settings.desktop.http;
 
