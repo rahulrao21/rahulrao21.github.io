@@ -1,0 +1,1 @@
+importScripts("https://ravitejak.pushengage.com/service-worker.js");
