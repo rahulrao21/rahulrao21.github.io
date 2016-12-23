@@ -7,7 +7,7 @@
     };
     var custom_url = 
     {
-        "url": "https://ravitejak.pushengage.com/",
+        "url": "http:\/\/www.xyz.com",
         "type": "window"
     };
     var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
@@ -364,9 +364,7 @@
         return "";
     }
 //===================================================================================================
-    if (location.protocol === "https:") 
-    {
-        console.log("Here");
+    if (location.protocol === "http:") {
         if (typeof(_pe_optin_settings.desktop.http) == "object")
             _pe_optin_settings.desktop = _pe_optin_settings.desktop.http;
 
@@ -610,7 +608,147 @@
 
     }
     //===============================================================================================
-   
+    if (location.protocol === "https:") {
+        if (typeof(_pe_optin_settings.desktop.https) == "object")
+            _pe_optin_settings.desktop = _pe_optin_settings.desktop.https;
+        var script = document.createElement('script');
+        script.type = "text/javascript";
+        script.src = _peapp.app_subdomain + "/script.js";
+        document.getElementsByTagName('head')[0].appendChild(script);
+        var _pe = {
+            subscribe: function(segmentName, callback) {
+                _pedata.push({
+                    "action": "addSubscriberToSegment",
+                    "data": segmentName
+                });
+                var delay = _pe_optin_settings.desktop.optin_delay * 1000;
+                if (typeof segmentName != 'undefined') {
+                    if (!internalsegment)
+                        internalsegment = segmentName;
+                }
+
+                if (internalsegment != false) {
+                    segment = internalsegment;
+                }
+                if (document.readyState == "complete") { //readystate if       
+                    return _peinternal.sslsubscribe(callback);
+                } //closing readystate if   
+                window.addEventListener("load", function() {
+                    _peinternal.sslsubscribe(callback);
+                }, false);
+            },
+
+            addSubscriberToSegment: function(segmentName) {
+                var isPushEnabled = false;
+                var PushSubscriberID = false;
+                navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
+                    serviceWorkerRegistration.pushManager.getSubscription().then(
+                        function(pushSubscription) {
+
+                            if (!pushSubscription) {
+                                isPushEnabled = false;
+                                return;
+                            } else {
+                                isPushEnabled = true;
+
+                                var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+                                if (is_firefox) {
+                                    PushSubscriberID = pushSubscription.endpoint.slice(pushSubscription.endpoint.search("v1/") + 3);
+                                } else {
+                                    PushSubscriberID = pushSubscription.endpoint.slice(pushSubscription.endpoint.search("send/") + 5);
+                                }
+
+                                var xhttp = new XMLHttpRequest();
+                                xhttp.open("POST", _peapp.app_subdomain + "/segments.php", false);
+                                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                xhttp.send("action=add_subscriber_to_segment&segment_name=" + segmentName + "&PushSubscriberID=" + PushSubscriberID);
+                            }
+                        }
+                    );
+                });
+
+                return true;
+            },
+            addProfileId: function(profileId) {
+                _pedata.push({
+                    "action": "addProfileId",
+                    "data": profileId
+                });
+                var isPushEnabled = false;
+                var PushSubscriberID = false;
+                navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
+                    serviceWorkerRegistration.pushManager.getSubscription().then(
+                        function(pushSubscription) {
+
+                            if (!pushSubscription) {
+                                isPushEnabled = false;
+                                return;
+                            } else {
+                                isPushEnabled = true;
+
+                                var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+                                if (is_firefox) {
+                                    PushSubscriberID = pushSubscription.endpoint.slice(pushSubscription.endpoint.search("v1/") + 3);
+                                } else {
+                                    PushSubscriberID = pushSubscription.endpoint.slice(pushSubscription.endpoint.search("send/") + 5);
+                                }
+
+                                var xhttp = new XMLHttpRequest();
+                                xhttp.open("POST", _peapp.app_subdomain + "/segments.php", false);
+                                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                xhttp.send("action=add_profile_id&profile_id=" + profileId + "&PushSubscriberID=" + PushSubscriberID);
+                                //                    
+
+                            }
+                        }
+                    );
+                });
+
+                return true;
+            },
+            removeSubscriberFromSegment: function(segmentName) {
+                var isPushEnabled = false;
+                var PushSubscriberID = false;
+                navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
+                    serviceWorkerRegistration.pushManager.getSubscription().then(
+                        function(pushSubscription) {
+
+
+                            if (!pushSubscription) {
+                                isPushEnabled = false;
+                                return;
+                            } else {
+                                isPushEnabled = true;
+
+                                var is_firefox = navigator.userAgent.toLowerCase().indexOf('firefox') > -1;
+                                if (is_firefox) {
+                                    PushSubscriberID = pushSubscription.endpoint.slice(pushSubscription.endpoint.search("v1/") + 3);
+                                } else {
+                                    PushSubscriberID = pushSubscription.endpoint.slice(pushSubscription.endpoint.search("send/") + 5);
+                                }
+                                var xhttp = new XMLHttpRequest();
+                                xhttp.open("POST", _peapp.app_subdomain + "/segments.php", false);
+                                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                                xhttp.send("action=remove_subscriber_from_segment&segment_name=" + segmentName + "&PushSubscriberID=" + PushSubscriberID);
+                            }
+                        }
+                    );
+                });
+
+
+                return true;
+            },
+            isSubscribed: function(callback) {
+                navigator.serviceWorker.ready.then(function(serviceWorkerRegistration) {
+                    serviceWorkerRegistration.pushManager.getSubscription().then(
+                        function(pushSubscription) {
+                            callback(pushSubscription != null && typeof(pushSubscription) == "object");
+                        }
+                    );
+                });
+            }
+        };
+    }
 
 
     function subscribe() {
