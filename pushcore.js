@@ -7,7 +7,7 @@
     };
     var custom_url = 
     {
-        "url": "http:\/\/www.xyz.com",
+        "url": "https://ravitejak.pushengage.com/",
         "type": "window"
     };
     var is_chrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
