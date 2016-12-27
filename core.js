@@ -523,7 +523,8 @@ function attachDialogCss()
                         if(internalsegment != false){
                 segment=internalsegment;
               }
-          if(document.readyState == "complete"){//readystate if       
+          if(document.readyState == "complete"){//readystate if  
+              console.log("inside ready state");
             return _peinternal.sslsubscribe(callback);
         }//closing readystate if   
         window.addEventListener("load",function(){_peinternal.sslsubscribe(callback);},false);
