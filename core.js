@@ -511,8 +511,8 @@ function attachDialogCss()
         script.type = "text/javascript";
         script.src = _peapp.app_subdomain+"/script.js";
         document.getElementsByTagName('head')[0].appendChild(script);
-         var _pe={ console.log("entering _pe");
-    subscribe:function(segmentName,callback){
+         var _pe={ 
+    subscribe:function(segmentName,callback){ console.log("entering _pe");
       _pedata.push({"action":"addSubscriberToSegment","data":segmentName});
       var delay=_pe_optin_settings.desktop.optin_delay*1000; 
       if (typeof segmentName != 'undefined'){
