@@ -519,7 +519,7 @@ function attachDialogCss()
                 if (!internalsegment)
                 internalsegment=segmentName;                
               }
-        
+        console.log("inside _pe");
                         if(internalsegment != false){
                 segment=internalsegment;
               }
