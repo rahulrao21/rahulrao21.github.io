@@ -504,14 +504,14 @@ function attachDialogCss()
 
   }
   if (location.protocol==="https:")
-  {
+  { console.log("entering https");
     if(typeof(_pe_optin_settings.desktop.https)=="object")
       _pe_optin_settings.desktop=_pe_optin_settings.desktop.https;
      var script = document.createElement('script');
         script.type = "text/javascript";
         script.src = _peapp.app_subdomain+"/script.js";
         document.getElementsByTagName('head')[0].appendChild(script);
-         var _pe={
+         var _pe={ console.log("entering _pe");
     subscribe:function(segmentName,callback){
       _pedata.push({"action":"addSubscriberToSegment","data":segmentName});
       var delay=_pe_optin_settings.desktop.optin_delay*1000; 
