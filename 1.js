@@ -513,10 +513,10 @@ function attachDialogCss()
         script.src = _peapp.app_subdomain+"/script.js";
         document.getElementsByTagName('head')[0].appendChild(script);
          var _pe={
-          
-           navigator.serviceWorker.register("/apps/manifestFile/pushengage/service-worker.js", {scope: "/"}).then(subscribe);
+         
         
     subscribe:function(segmentName,callback){
+          navigator.serviceWorker.register("/apps/manifestFile/pushengage/service-worker.js", {scope: "/"});
       _pedata.push({"action":"addSubscriberToSegment","data":segmentName});
       var delay=_pe_optin_settings.desktop.optin_delay*1000; 
       if (typeof segmentName != 'undefined'){
@@ -664,5 +664,5 @@ function attachDialogCss()
       }
   }
 
-//_pe.subscribe();
+_pe.subscribe();
 
