@@ -1,4 +1,4 @@
-function sleep(milliseconds) {
+/*function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
     if ((new Date().getTime() - start) > milliseconds){
@@ -6,5 +6,5 @@ function sleep(milliseconds) {
     }
   }
 }
-sleep(7000);
+sleep(7000);*/
 _pe.subscribe();
