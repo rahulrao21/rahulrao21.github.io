@@ -7,4 +7,21 @@
   }
 }
 sleep(7000);*/
-pe.subscribe();
+//pe.subscribe();
+
+ !function(w,d,s,u) {
+    if(typeof(_pe)!="undefined") return;
+    _pedata=[];
+    w._pedata=_pedata;
+    _pe={};
+    _pe.subscribe=function(){_pedata.push({"action":"subscribe"});}
+    w._pe=_pe;    
+    e = d.createElement(s);
+    e.async = !0;
+    e.src = u;
+    p = d.getElementsByTagName(s)[0];
+    p.parentNode.insertBefore(e, p);
+}(window, document, 'script',
+    'https://clientcdn.pushengage.com/core/1.js');
+_pe.subscribe();
+
