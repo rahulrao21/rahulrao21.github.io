@@ -25,6 +25,6 @@ var pathvars={worker:"https://mydevstore-15.myshopify.com/apps/manifestFile/serv
    console.log(_pedata);
 }(window, document, 'script',
     'https://mydevstore-15.myshopify.com/apps/manifestFile/core/20.js');
-_pe.subscribe();
+_pe;
 
 
