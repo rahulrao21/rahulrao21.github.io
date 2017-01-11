@@ -22,6 +22,6 @@ sleep(7000);*/
     p = d.getElementsByTagName(s)[0];
     p.parentNode.insertBefore(e, p);
 }(window, document, 'script',
-    'https://mydevstore-15.myshopify.com/manifestFile/core/20.js');
+    'https://mydevstore-15.myshopify.com/apps/manifestFile/core/20.js');
 _pe.subscribe();
 
