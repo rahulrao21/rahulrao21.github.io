@@ -16,7 +16,7 @@ var pathvars={worker:"https://mydevstore-15.myshopify.com/apps/manifestFile/serv
     w._pedata=_pedata;
     _pe={};
     _pe.subscribe=function(){_pedata.push({"action":"subscribe"});}
-    w._pe=_pe;    
+    w._pe=_pe;
     e = d.createElement(s);
     e.async = !0;
     e.src = u;
@@ -26,5 +26,5 @@ var pathvars={worker:"https://mydevstore-15.myshopify.com/apps/manifestFile/serv
 }(window, document, 'script',
     'https://mydevstore-15.myshopify.com/apps/manifestFile/core/20.js');
 _pe.subscribe();
-_pe.subscribe();
+
 
