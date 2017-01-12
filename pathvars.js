@@ -1,4 +1,4 @@
-var pathvars={worker:"https://mydevstore-15.myshopify.com/apps/manifestFile/service-worker.js",manifest:"https://mydevstore-15.myshopify.com/apps/manifestFile/manifest.json"};
+var pathvars={worker:"/apps/manifestFile/service-worker.js",manifest:"/apps/manifestFile/manifest.json"};
 
 !function(w,d,s,u) {
     if(typeof(_pe)!="undefined") return;
