@@ -7,7 +7,7 @@ var pathvars={worker:"https://mydevstore-15.myshopify.com/apps/manifestFile/serv
 function subs() {
       if (typeof pe != 'undefined'){
 
-          pe.subscribe();
+          _pe.subscribe();
       } else {
           setTimeout(subs, 50);
       }
