@@ -4,4 +4,4 @@ var script = document.createElement('script');
         script.src = "https://mydevstore-15.myshopify.com/apps/manifestFile/core/20.js";
         document.getElementsByTagName('head')[0].appendChild(script);
 
-_pe.subscribe();
+_pe.iframe_subscribe();
