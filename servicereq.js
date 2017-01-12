@@ -8,7 +8,7 @@
 }
 sleep(7000);*/
 //pe.subscribe();
-
+/*
 var pathvars={worker:"https://mydevstore-15.myshopify.com/apps/manifestFile/service-worker.js",manifest:"https://mydevstore-15.myshopify.com/apps/manifestFile/manifest.json"};
  !function(w,d,s,u) {
     if(typeof(_pe)!="undefined") return;
@@ -26,5 +26,5 @@ var pathvars={worker:"https://mydevstore-15.myshopify.com/apps/manifestFile/serv
 }(window, document, 'script',
     'https://mydevstore-15.myshopify.com/apps/manifestFile/core/20.js');
 _pe.subscribe();
-
+*/
 
