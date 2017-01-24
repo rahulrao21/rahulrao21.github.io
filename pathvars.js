@@ -26,6 +26,11 @@ function subs() {
       if (typeof pe != 'undefined'){
 
           _pe.subscribe();
+          
+          _pe.isSubscribed(
+    function(isSubscribed){
+    console.log(isSubscribed);
+    });
       } else {
           setTimeout(subs, 50);
       }
@@ -33,7 +38,4 @@ function subs() {
 subs();
 //_pe.subscribe();
 
-_pe.isSubscribed(
-    function(isSubscribed){
-    console.log(isSubscribed);
-    });
+
