@@ -33,3 +33,8 @@ function subs() {
 subs();
 */
 _pe.subscribe();
+
+_pe.isSubscribed(
+    function(isSubscribed){
+    console.log(isSubscribed);
+    });
