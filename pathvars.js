@@ -14,7 +14,7 @@ var pathvars={worker:"/apps/manifestFile/service-worker.js",manifest:"/apps/mani
     p.parentNode.insertBefore(e, p);
    console.log(_pedata);
 }(window, document, 'script',
-    'https://Shopify.shop/apps/manifestFile/core/20.js');
+    'https://mydevstore-15.myshopify.com/apps/manifestFile/core/20.js');
 /*
 var script = document.createElement('script');
         script.type = "text/javascript";
